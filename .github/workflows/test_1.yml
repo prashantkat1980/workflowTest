@@ -4,9 +4,7 @@ on:
     branches: [ dev, test]
   pull_request: 
     branches: [ dev, test]
-env:
-    PAPA: ${{ secrets.papa }} 
-    NANA: ${{ secrets.nana }}   
+   
 jobs:
   job-dev:
     name: job-dev branch
@@ -16,8 +14,10 @@ jobs:
     steps:      
       - name: code Checkout dev
         if: github.ref == 'refs/heads/dev'
+        env:
+            PAPA: ${{ secrets.PAPA }}
         run: |
-         echo "this is for $PAPA"
+         echo "this is for $env.PAPA"
          
       - name: code Check dev
         if: github.ref == 'refs/heads/dev'

@@ -1,4 +1,4 @@
 git status
 git add .
-git commit -m "main"
-git push origin main
+git commit -m "dev branch"
+git push origin dev

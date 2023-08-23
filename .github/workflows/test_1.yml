@@ -1,9 +1,9 @@
 name: test-1
 on:
   push:
-    branches: [ main, dev, test]
+    branches: [ dev, test]
   pull_request: 
-    branches: [ main, dev, test]
+    branches: [ dev, test]
 jobs:
   job-dev:
     name: job-dev branch

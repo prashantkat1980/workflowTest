@@ -14,13 +14,15 @@ jobs:
     steps:      
       - name: code Checkout dev
         if: github.ref == 'refs/heads/dev'
+        env:
+            PAPA: ${{ secrets.PAPA }}
         run: |
-         echo "this is for: ${{ secrets.PAPA }}"
+         echo "this is for: $PAPA"
          
       - name: code Check dev
         if: github.ref == 'refs/heads/dev'
         run: |
-          echo "this is for: ${secrets.NANA}"        
+          echo "this is for: ${{ secrets.NANA }}"        
   job-test:
             name: job-test branch
             env:

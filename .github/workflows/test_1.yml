@@ -1,0 +1,40 @@
+name: test-1
+on:
+  push:
+    branches: [ dev, test]
+  pull_request: 
+    branches: [ dev, test]
+env:
+    PAPA: ${{ secrets.papa }} 
+    NANA: ${{ secrets.nana }}   
+jobs:
+  job-dev:
+    name: job-dev branch
+    runs-on: ubuntu-latest
+    env:
+        environment: 'dev'
+    steps:      
+      - name: code Checkout dev
+        if: github.ref == 'refs/heads/dev'
+        run: |
+         echo "this is for job-1"
+         
+      - name: code Check dev
+        if: github.ref == 'refs/heads/dev'
+        run: |
+          echo "this is for job-1"        
+  job-test:
+            name: job-test branch
+            env:
+                environment: test
+            runs-on: ubuntu-latest
+            steps:
+              - name: code Checkout test
+                if: github.ref == 'refs/heads/test'
+                run: |
+                 echo "this is for $papa"
+                 
+              - name: code chech test
+                if: github.ref == 'refs/heads/test'
+                run: |
+                  echo "this is for $papa"       

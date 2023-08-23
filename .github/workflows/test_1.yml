@@ -15,14 +15,16 @@ jobs:
       - name: code Checkout dev
         if: github.ref == 'refs/heads/dev'
         env:
-            PAPA: ${{ secrets.PAPA }}
+            PAPA: ${{ secrets.papa }}
         run: |
-         echo "this is for: $PAPA"
+         ecample command "$PAPA"
          
       - name: code Check dev
         if: github.ref == 'refs/heads/dev'
+        env:
+            NANA: ${{ secrets.nana }}
         run: |
-          echo "this is for: ${{ secrets.NANA }}"        
+          echo "this is for: $NANA"        
   job-test:
             name: job-test branch
             env:

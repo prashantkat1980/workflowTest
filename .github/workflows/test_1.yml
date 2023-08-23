@@ -17,12 +17,12 @@ jobs:
       - name: code Checkout dev
         if: github.ref == 'refs/heads/dev'
         run: |
-         echo "this is for job-1"
+         echo "this is for $papa"
          
       - name: code Check dev
         if: github.ref == 'refs/heads/dev'
         run: |
-          echo "this is for job-1"        
+          echo "this is for $nana"        
   job-test:
             name: job-test branch
             env:

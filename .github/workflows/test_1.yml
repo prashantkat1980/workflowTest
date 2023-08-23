@@ -15,14 +15,14 @@ jobs:
       - name: code Checkout dev
         if: github.ref == 'refs/heads/dev'
         env:
-            SARA: ${{ secrets.papa }}
+            SARA: ${{ secrets.PAPA }}
         run: |
          echo "$SARA"
          
       - name: code Check dev
         if: github.ref == 'refs/heads/dev'
         env:
-            POONA: ${{ secrets.nana }}
+            POONA: ${{ secrets.NANA }}
         run: |
           echo "this is for: $POONA"        
   job-test:
